@@ -1,0 +1,61 @@
+.card{
+    position: absolute;
+    width: 438px;
+    height: 624px;
+    left: 501px;
+    top: 200px;
+    background: #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 6px 20px rgba(39, 87, 184, 0.25);
+    border-radius: 5px;
+}
+.svg{
+    width: 100%;
+}
+.card .titulo {
+    position: absolute;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin: 20px;
+}
+.card .card-child{
+    width: 305px;
+    height: 446px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.labelForm{
+    margin: 0 auto;
+    width: 240px;
+    height: 85px;
+    left: 599px;
+    top: 333px;
+}
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    width: 240px;
+    height: 39px;
+    left: 599px;
+    top: 562px;
+    box-shadow: 0px 8px 15px #8A9BE7;
+    background: #8A9BE7;
+    border-radius: 5px;
+    color: white;
+    border: none;
+}
