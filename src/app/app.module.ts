@@ -7,6 +7,8 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/sugerencia/registro/registro.component';
 import { ConsultaComponent } from './componentes/sugerencia/consulta/consulta.component';
 import { OpcionComponent } from './componentes/opcion/opcion.component';
+import { MovieServiceService } from './servicios/movie-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { OpcionComponent } from './componentes/opcion/opcion.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MovieServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
