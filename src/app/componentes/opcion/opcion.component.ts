@@ -20,7 +20,7 @@ export class OpcionComponent implements OnInit {
         this.position = true;
         break;
       default:
-          this.position = false;
+        this.position = false;
         break;
     }
     // console.log('userInfo: ', JSON.parse(retrievedObject));
