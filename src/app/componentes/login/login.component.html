@@ -15,17 +15,18 @@
         </svg>
     </div>
     <div class="card-child">
-        <div class="labelForm">
-            <p>Usuario</p>
-            <input type="text">
-        </div>
-        <div class="labelForm">
-            <p>Contraseña</p>
-            <input type="text">
-        </div>
-        <div class="justify-center">
-            <button class="btn" (click)="ingresar()">INGRESAR</button>
-        </div>
-        
+        <form (submit)="signIn()">
+            <div class="labelForm">
+                <p>Usuario</p>
+                <input [(ngModel)]="user.email" type="text" name="email">
+            </div>
+            <div class="labelForm">
+                <p>Contraseña</p>
+                <input [(ngModel)]="user.password" type="password" name="password">
+            </div>
+            <div class="justify-center">
+                <button type="submit" class="btn">INGRESAR</button>
+            </div>
+        </form>
     </div>
 </div>

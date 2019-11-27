@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MovieServiceService } from 'src/app/servicios/movie-service.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,17 +10,42 @@ import { MovieServiceService } from 'src/app/servicios/movie-service.service';
 })
 export class LoginComponent implements OnInit {
 
+  user = {
+    email:'',
+    password:''
+  }
+
   constructor(private router: Router,
-    private moviesService : MovieServiceService) { 
-      this.moviesService.getMovies().subscribe(movies =>{
-        console.log(movies);
-      })
+    private authService : AuthService) { 
+      
     }
 
   ngOnInit() {
   }
 
-  ingresar(){
-    this.router.navigate(['/view1']);
+  signUp(){
+    this.authService.signUp(this.user)
+      .subscribe(
+        res =>{
+          console.log(res)
+          localStorage.setItem('token', res.token);
+          this.router.navigate(['/view1']);
+        },
+        err => console.log(err)
+      )
+  }
+
+  signIn(){
+    this.authService.signIn(this.user)
+    .subscribe(
+      res =>{
+        console.log(res)
+        localStorage.setItem('token', res.token);
+        // console.log(res.userInfo)
+        localStorage.setItem('userInfo', JSON.stringify(res.userInfo));
+        this.router.navigate(['/view1']);
+      },
+      err => console.log(err)
+    )
   }
 }

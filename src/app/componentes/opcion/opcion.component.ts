@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpcionComponent implements OnInit {
 
+  position:boolean;
+
   constructor() { }
 
   ngOnInit() {
+    var retrievedObject = JSON.parse(localStorage.getItem('userInfo'));
+    console.log('userInfo: ', retrievedObject);
+    
+    switch (retrievedObject.position) {
+      case 'gerente':
+        this.position = true;
+        break;
+      default:
+          this.position = false;
+        break;
+    }
+    // console.log('userInfo: ', JSON.parse(retrievedObject));
   }
 
 }

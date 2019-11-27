@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import 'rxjs/add/operator/map';
-// import "rxjs";
-// import { map } from 'rxjs/operators';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import { Movies } from '../modelos/movie.model'
 

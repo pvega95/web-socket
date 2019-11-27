@@ -18,6 +18,9 @@
         <div class="bodyChild">
                 <button class="btn" routerLink="/registro">INGRESAR SUGERENCIA</button>
                 <button class="btn" routerLink="/consulta">CONSULTAR SUGERENCIA</button>
+                <ng-container *ngIf="position">
+                        <button class="btn" routerLink="/gestion-sugerencia">GESTION SUGERENCIA</button>
+                </ng-container>
         </div>
     </div>
 </div>
