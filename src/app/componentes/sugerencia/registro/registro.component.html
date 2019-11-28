@@ -5,11 +5,11 @@
             <div class="dflex">
                 <img src="https://picsum.photos/100" alt="" class="circle responsive-img mx-auto">
             </div>
-            <div>
+            <div class="card-text">
                 <p>Hector Lavoe</p>
                 <p>Area Transporte</p>
             </div>
-            <div>
+            <div >
                 <button class="btn-circle">A</button>
                 <button class="btn-circle-2">B</button>
             </div>
@@ -17,7 +17,7 @@
 
     </div>
 
-    <div class="col s8">
+    <div class="col s8" [formGroup]="crudForm">
         <div class="step-model">
             <div class="step-number">
                 <p class="circle-number">1</p>
@@ -27,7 +27,7 @@
                     <p>Descripcion de la problematica</p>
                     <hr>
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <textarea id="textarea1" class="materialize-textarea" formControlName="des_actual"></textarea>
                         <label for="textarea1">Ingrese Texto</label>
                     </div>
                 </div>
@@ -42,7 +42,8 @@
                 <div class="container">
                     <p>Adjuntar Imagen</p>
                     <hr>
-                    <form action="#">
+                    
+                    <!-- <form action="#">
                             <div class="file-field input-field">
                               <div class="btn">
                                 <span>ADJUNTAR</span>
@@ -52,7 +53,7 @@
                                 <input class="file-path validate" type="text">
                               </div>
                             </div>
-                          </form>
+                          </form> -->
                 </div>
             </div>
         </div>
@@ -66,7 +67,7 @@
                     <p>Descripcion posible solucion</p>
                     <hr>
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <textarea id="textarea1" class="materialize-textarea" formControlName="des_futura"></textarea>
                         <label for="textarea1">Ingrese Texto</label>
                     </div>
                 </div>
@@ -79,9 +80,11 @@
             </div>
             <div class="step-body-2">
                 <div class="container">
-                    <p>Adjuntar Imagen de la Solucion</p>
+                    <!-- <p>Adjuntar Imagen de la Solucion</p> -->
+                    <p>Fecha</p>
                     <hr>
-                    <form action="#">
+                    <input type="text" class="datepicker" formControlName="fecha_ingreso">
+                    <!-- <form action="#">
                             <div class="file-field input-field">
                               <div class="btn">
                                 <span>ADJUNTAR</span>
@@ -91,14 +94,14 @@
                                 <input class="file-path validate" type="text">
                               </div>
                             </div>
-                          </form>
+                          </form> -->
                 </div>
             </div>
         </div>
     </div>
     <div class="col s2">
         <div class="bodyChild">
-            <button class="btn">ENVIAR</button>
+            <button class="btn" (click)="submit()">ENVIAR</button>
         </div>
     </div>
 </div>

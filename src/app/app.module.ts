@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { AuthService } from './servicios/auth.service';
 import { TokenInterceptorService } from './servicios/token-interceptor.service';
 import { NavComponent } from './componentes/nav/nav.component';
 import { GestionComponent } from './componentes/gestion/gestion.component';
+import { ModalComponent } from './componentes/modal/modal.component';
+import { DocumentoService } from './servicios/documento.service';
 
 @NgModule({
   declarations: [
@@ -23,15 +25,18 @@ import { GestionComponent } from './componentes/gestion/gestion.component';
     ConsultaComponent,
     OpcionComponent,
     NavComponent,
-    GestionComponent
+    GestionComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserModule, 
+    ReactiveFormsModule
   ],
-  providers: [MovieServiceService,AuthService,
+  providers: [MovieServiceService,AuthService,DocumentoService,
   {
     provide : HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

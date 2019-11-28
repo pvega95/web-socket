@@ -13,7 +13,7 @@ export class OpcionComponent implements OnInit {
 
   ngOnInit() {
     var retrievedObject = JSON.parse(localStorage.getItem('userInfo'));
-    console.log('userInfo: ', retrievedObject);
+    // console.log('userInfo: ', retrievedObject);
     
     switch (retrievedObject.position) {
       case 'gerente':

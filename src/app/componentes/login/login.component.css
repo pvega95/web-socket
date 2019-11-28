@@ -60,3 +60,10 @@
     border: none;
     cursor: pointer;
 }
+.labelForm p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}

@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
       res =>{
         console.log(res)
         localStorage.setItem('token', res.token);
-        // console.log(res.userInfo)
         localStorage.setItem('userInfo', JSON.stringify(res.userInfo));
         this.router.navigate(['/view1']);
       },

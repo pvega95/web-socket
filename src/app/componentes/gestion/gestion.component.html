@@ -1,6 +1,96 @@
 <app-nav></app-nav>
-<div class="">
-  <div class="caption">
-      <span class="border">Estamos Trabajando</span>
+
+<div class="row mt-2">
+  <div class="col s2">
+    <div class="card-user">
+      <div class="dflex">
+        <img src="https://picsum.photos/100" alt="" class="circle responsive-img mx-auto">
+      </div>
+      <div class="card-text">
+        <p>Hector Lavoe</p>
+        <p>Area Transporte</p>
+      </div>
+      <div>
+        <button class="btn-circle">A</button>
+        <button class="btn-circle-2">B</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col s8">
+    <div class="step-model">
+      <div class="step-number">
+        <p class="circle-number">1</p>
+      </div>
+      <div class="step-body">
+        <div class="container">
+          <p>Verifique el estado a Gestionar</p>
+          <hr>
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="cod_sugerencia"></textarea>
+            <label for="textarea1">Ingrese Texto</label>
+          </div>
+          <div class="">
+            <button class="btn" (click)="submit()">ENVIAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vl"></div>
+    <div class="step-model">
+      <div class="step-number">
+        <p class="circle-number">2</p>
+      </div>
+      <div class="step-body-2">
+        <div class="container">
+          <p>Resultado</p>
+          <hr>
+          <div *ngIf="this.document" class="collection">
+            <a class="collection-item"><span class="badge">{{document.des_actual}}</span>Descripcion actual</a>
+            <a class="collection-item"><span class="badge">{{document.des_futura}}</span>Descripcion futura</a>
+            <a class="collection-item"><span class="badge">{{document.fecha_ingreso}}</span>Fecha de registro</a>
+            <a class="collection-item"><span class="new badge" data-badge-caption="x revisar">4</span>Estado</a>
+            <div class="input-field col s12">
+                <select [(ngModel)]="selectedOption" style="display: unset;">
+                    <option [value]="o.value" *ngFor="let o of options">
+                       {{o.name}}
+                    </option>
+                 </select>
+            </div>
+            <button class="btn" (click)="update()">ACTUALIZAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vl"></div>
+    <div class="step-model">
+      <div class="step-number">
+        <p class="circle-number">3</p>
+      </div>
+      <div class="step-body-2">
+        <div class="container">
+          <p>Ver Todo</p>
+          <hr>
+          <table class="striped">
+              <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Estado</th>
+                </tr>
+              </thead>
+      
+              <tbody>
+                <tr *ngFor="let document of documents">
+                  <td>{{document._id}}</td>
+                  <td>{{document.fecha_ingreso}}</td>
+                  <td>{{document.estado}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

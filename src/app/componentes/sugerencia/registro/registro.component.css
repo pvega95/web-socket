@@ -111,3 +111,7 @@
 .mt-2{
     margin-top: 2rem;
 }
+.card-text{
+    text-align: center;
+    padding: 10px;
+ }
