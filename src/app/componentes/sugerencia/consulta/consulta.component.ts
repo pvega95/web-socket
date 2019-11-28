@@ -33,6 +33,7 @@ export class ConsultaComponent implements OnInit {
         
       },
       err =>{
+        this.message.error('No se encontraron resultados')
         console.log(err)
       }
     )

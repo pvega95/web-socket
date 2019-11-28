@@ -17,7 +17,6 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/sugerencia/registro/registro.component';
 import { ConsultaComponent } from './componentes/sugerencia/consulta/consulta.component';
 import { OpcionComponent } from './componentes/opcion/opcion.component';
-import { MovieServiceService } from './servicios/movie-service.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './servicios/auth.service';
 import { TokenInterceptorService } from './servicios/token-interceptor.service';
@@ -27,6 +26,8 @@ import { ModalComponent } from './componentes/modal/modal.component';
 import { DocumentoService } from './servicios/documento.service';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
+
+import { LOCALE_ID } from '@angular/core';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
@@ -55,8 +56,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     NzUploadModule,
     NzModalModule,
   ],
-  providers: [MovieServiceService,AuthService,DocumentoService,
-    
+  providers: [AuthService,DocumentoService,
+    { provide: LOCALE_ID, useValue: "en-US" },
     { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // If not provided, Ant Design's official blue would be used
     { provide: NZ_ICONS, useValue: icons },
     {

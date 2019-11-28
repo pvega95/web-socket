@@ -45,6 +45,7 @@ export class GestionComponent implements OnInit {
       },
       err =>{
         console.log(err)
+        this.message.error('No se encontraron resultados')
       }
     )
   }
@@ -54,8 +55,7 @@ export class GestionComponent implements OnInit {
     console.log(this.selectedOption)
     this.documentService.updateDocument(this.currentId, { "estado": this.selectedOption.toString(), "__v": 0 } ).subscribe(()=>{
       this.getAllDocument()
-      console.log("wtf")
-      this.message.success('El usuario se ha actualizado correctamente!')
+      this.message.success('Se actualizo el estado del documento')
     })
   }
 
@@ -63,6 +63,7 @@ export class GestionComponent implements OnInit {
    this.documentService.getDocuments()
    .subscribe(
      res=>{
+       console.log(res)
        this.documents = res
      },
      err=>{

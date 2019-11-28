@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Document } from '../modelos/document.model'
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocumentoService {
-  private URL = 'http://localhost:3000/api'
+  
+  private URL = environment.URL;
+  // private URL = 'https://sugerencia-app.herokuapp.com/api'
+  // private URL = 'http://localhost:3000/api'
   constructor(
     private http:HttpClient,
     private router:Router

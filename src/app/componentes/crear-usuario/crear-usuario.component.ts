@@ -29,7 +29,7 @@ export class CrearUsuarioComponent implements OnInit {
   signUp(){
     
     this.AuthServ.signUp(this.user).subscribe(()=>{
-      this.message.success('El usuario se ha actualizado correctamente!')
+      this.message.success('El usuario se ha creado correctamente!')
     })
   }
 }

@@ -39,7 +39,7 @@ export class RegistroComponent implements OnInit {
       img_actual: '',
       img_futura: '',
       autor: '',
-      estado: null,
+      // estado: null,
     });
   }
 

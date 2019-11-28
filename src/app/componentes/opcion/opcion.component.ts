@@ -16,7 +16,10 @@ export class OpcionComponent implements OnInit {
     // console.log('userInfo: ', retrievedObject);
     
     switch (retrievedObject.position) {
-      case 'gerente':
+      case '2':
+        this.position = true;
+        break;
+      case '3':
         this.position = true;
         break;
       default:

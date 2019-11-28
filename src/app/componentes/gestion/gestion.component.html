@@ -50,23 +50,27 @@
         <div class="container">
           <p>Resultado</p>
           <hr>
-          <div *ngIf="document" class="collection">
-            <a class="collection-item"><span class="badge">{{document.des_actual}}</span>Descripcion actual</a>
-            <a class="collection-item"><span class="badge">{{document.des_futura}}</span>Descripcion futura</a>
-            <a class="collection-item"><span class="badge">{{document.fecha_ingreso}}</span>Fecha de registro</a>
-            <a class="collection-item"><span class="new badge" data-badge-caption="x revisar">4</span>Estado</a>
-            <div class="input-field col s12">
-                <select [(ngModel)]="selectedOption" style="display: unset;">
-                  <ng-container *ngFor="let o of options; let i = index">
-                    <option [value]="o.value" *ngIf="i !== 0">
-                       {{o.name}}
-                    </option>
-                  </ng-container>
-                  
-                 </select>
+          <div *ngIf="document">
+            <div  class="collection">
+              <a class="collection-item"><span class="badge">{{document.des_actual}}</span>Descripcion actual</a>
+              <a class="collection-item"><span class="badge">{{document.des_futura}}</span>Descripcion futura</a>
+              <a class="collection-item"><span class="badge">{{document.fecha_ingreso}}</span>Fecha de registro</a>
+              <a class="collection-item"><span class="new badge" data-badge-caption="x revisar"></span>Estado</a>
+              <div class="input-field col s12">
+                  <select [(ngModel)]="selectedOption" style="display: unset;">
+                    <ng-container *ngFor="let o of options; let i = index">
+                      <option [value]="o.value" *ngIf="i !== 0">
+                         {{o.name}}
+                      </option>
+                    </ng-container>
+                    
+                   </select>
+              </div>
+              
             </div>
             <button class="btn" (click)="update()">ACTUALIZAR</button>
           </div>
+          
         </div>
       </div>
     </div>
@@ -92,7 +96,7 @@
                 <tr *ngFor="let document of documents">
                   <td>{{document._id}}</td>
                   <td>{{document.fecha_ingreso}}</td>
-                  <td>{{ options[document.estado].name }}</td>    <!-- esto es trampa -->
+                  <td>{{ (options[document.estado] || {name:''}).name }}</td>    <!-- esto es trampa -->
                 </tr>
               </tbody>
             </table>

@@ -9,10 +9,11 @@ import { AuthService } from 'src/app/servicios/auth.service';
 export class NavComponent implements OnInit {
 
   constructor(
-    private authService:AuthService
+    public authService:AuthService
   ) { }
 
   ngOnInit() {
+   
   }
 
 }
