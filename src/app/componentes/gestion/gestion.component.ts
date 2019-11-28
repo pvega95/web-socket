@@ -14,11 +14,13 @@ export class GestionComponent implements OnInit {
 
   selectedOption: any;
   printedOption: string;
+  currentId : string; //THE ID THAT made the call to find (submit)
 
   options = [
-    { name: "x revisar", value: 1 },
-    { name: "aprobado", value: 2 },
-    { name: "rechazado", value: 3 }
+    { name: "TRAMPA"        , value: 0},
+    { name: "Por revisar"   , value: 1 },
+    { name: "Aprobado"      , value: 2 },
+    { name: "Rechazado"     , value: 3 }
   ]
 
   constructor(
@@ -33,9 +35,11 @@ export class GestionComponent implements OnInit {
   submit(){
     this.documentService.findDocument(this.cod_sugerencia)
     .subscribe(
-      res =>{
+      (res:any) =>{
         this.document = res;
-        console.log(this.document)
+        console.log( "submit doc, find:", this.document)
+        this.selectedOption = res.estado
+        this.currentId = res._id
       },
       err =>{
         console.log(err)
@@ -46,13 +50,14 @@ export class GestionComponent implements OnInit {
   update() {
     this.printedOption = this.selectedOption;
     console.log(this.selectedOption)
+    this.documentService.updateDocument(this.currentId, { "estado": this.selectedOption.toString(), "__v": 0 } ).subscribe()
   }
 
   getAllDocument(){
    this.documentService.getDocuments()
    .subscribe(
      res=>{
-       console.log(res)
+       console.log( "get doc", res)
        this.documents = res
      },
      err=>{

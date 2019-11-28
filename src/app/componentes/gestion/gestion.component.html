@@ -53,9 +53,12 @@
             <a class="collection-item"><span class="new badge" data-badge-caption="x revisar">4</span>Estado</a>
             <div class="input-field col s12">
                 <select [(ngModel)]="selectedOption" style="display: unset;">
-                    <option [value]="o.value" *ngFor="let o of options">
+                  <ng-container *ngFor="let o of options; let i = index">
+                    <option [value]="o.value" *ngIf="i !== 0">
                        {{o.name}}
                     </option>
+                  </ng-container>
+                  
                  </select>
             </div>
             <button class="btn" (click)="update()">ACTUALIZAR</button>
@@ -85,7 +88,7 @@
                 <tr *ngFor="let document of documents">
                   <td>{{document._id}}</td>
                   <td>{{document.fecha_ingreso}}</td>
-                  <td>{{document.estado}}</td>
+                  <td>{{ options[document.estado].name }}</td>    <!-- esto es trampa -->
                 </tr>
               </tbody>
             </table>

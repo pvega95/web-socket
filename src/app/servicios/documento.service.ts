@@ -26,4 +26,7 @@ export class DocumentoService {
     return this.http.get<Document>(this.URL + '/documents/'+idDocument)
   }
 
+  updateDocument(idDocument, body){
+    return this.http.put(this.URL + '/documents/' + idDocument, body)
+  }
 }
