@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentoService } from 'src/app/servicios/documento.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { UploadFile } from 'ng-zorro-antd/upload/interface';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-registro',
@@ -11,8 +13,22 @@ export class RegistroComponent implements OnInit {
   crudForm: FormGroup;
   autor: any;
 
+  /* For image */
+
+  showUploadList = {
+    showPreviewIcon: true,
+    showRemoveIcon: true,
+    hidePreviewIconInNonImage: true
+  };
+  fileList = [ ];
+  previewImage: string | undefined = '';
+  previewVisible = false;
+
+  /* End of Image req */
+
   constructor(
     private documentService: DocumentoService,
+    private message: NzMessageService,
     private formBuilder: FormBuilder
   ) {
     this.crudForm = this.formBuilder.group({
@@ -20,7 +36,10 @@ export class RegistroComponent implements OnInit {
       des_actual: '',
       des_futura: '',
       fecha_ingreso: '',
-      autor: ''
+      img_actual: '',
+      img_futura: '',
+      autor: '',
+      estado: null,
     });
   }
 
@@ -33,11 +52,13 @@ export class RegistroComponent implements OnInit {
 
   submit() {
     this.crudForm.controls['autor'].setValue(this.autor)
+    this.crudForm.get('fecha_ingreso').patchValue(new Date())
     const document = this.crudForm.value;
     console.log(document);
     this.documentService.createDocument(document)
       .subscribe(
-        res => {
+        (res:any) => {
+          this.message.success('Se ha registrado su sugerencia: ' + res.documento._id)
           console.log(res)
         },
         err => console.log(err)
@@ -45,5 +66,11 @@ export class RegistroComponent implements OnInit {
 
   }
 
-
+  /* Start of image req */
+  
+  handlePreview = (file: UploadFile) => {
+    this.previewImage = file.url || file.thumbUrl;
+    this.previewVisible = true;
+  };
+  /* End of image req */
 }

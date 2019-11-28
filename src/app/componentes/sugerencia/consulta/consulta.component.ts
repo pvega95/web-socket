@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentoService } from 'src/app/servicios/documento.service';
 import { Document } from 'src/app/modelos/document.model';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-consulta',
@@ -12,6 +13,7 @@ export class ConsultaComponent implements OnInit {
   cod_sugerencia:string = '';
   document: Document;
   constructor(
+    private message: NzMessageService,
     private documentService: DocumentoService
   ) { }
 
@@ -21,9 +23,14 @@ export class ConsultaComponent implements OnInit {
   submit(){
     this.documentService.findDocument(this.cod_sugerencia)
     .subscribe(
-      res =>{
-        this.document = res;
-        console.log(this.document)
+      (res:any) =>{
+        if(res == null){
+          this.message.error('No se encontraron resultados')
+        }else{
+          this.document = res;
+          this.message.info('Se encontraron resultados')
+        }
+        
       },
       err =>{
         console.log(err)

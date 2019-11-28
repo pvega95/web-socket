@@ -10,9 +10,13 @@
         <p>Hector Lavoe</p>
         <p>Area Transporte</p>
       </div>
-      <div>
-        <button class="btn-circle">A</button>
-        <button class="btn-circle-2">B</button>
+      <div class="dflex" style="justify-content: space-around;">
+        <button class="btn-circle">
+            <i nz-icon nzType="message" nzTheme="outline"></i>
+        </button>
+        <button class="btn-circle-2">
+            <i nz-icon nzType="logout" nzTheme="outline"></i>
+        </button>
       </div>
     </div>
 
@@ -46,7 +50,7 @@
         <div class="container">
           <p>Resultado</p>
           <hr>
-          <div *ngIf="this.document" class="collection">
+          <div *ngIf="document" class="collection">
             <a class="collection-item"><span class="badge">{{document.des_actual}}</span>Descripcion actual</a>
             <a class="collection-item"><span class="badge">{{document.des_futura}}</span>Descripcion futura</a>
             <a class="collection-item"><span class="badge">{{document.fecha_ingreso}}</span>Fecha de registro</a>

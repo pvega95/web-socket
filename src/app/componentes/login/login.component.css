@@ -39,14 +39,13 @@
 }
 .labelForm{
     margin: 0 auto;
+    padding: 20px 0;
     width: 240px;
-    height: 85px;
-    left: 599px;
-    top: 333px;
 }
 .justify-center{
     display: flex;
     justify-content: center;
+    padding: 15px 0 0;
 }
 .btn{
     width: 240px;

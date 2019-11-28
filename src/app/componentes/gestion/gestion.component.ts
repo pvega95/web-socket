@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentoService } from 'src/app/servicios/documento.service';
 import { Document } from 'src/app/modelos/document.model';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-gestion',
@@ -24,7 +25,8 @@ export class GestionComponent implements OnInit {
   ]
 
   constructor(
-    private documentService: DocumentoService
+    private documentService: DocumentoService,
+    private message: NzMessageService,
   ) { }
 
   ngOnInit() {
@@ -37,9 +39,9 @@ export class GestionComponent implements OnInit {
     .subscribe(
       (res:any) =>{
         this.document = res;
-        console.log( "submit doc, find:", this.document)
         this.selectedOption = res.estado
         this.currentId = res._id
+        this.message.info('Se encontraron resultados')
       },
       err =>{
         console.log(err)
@@ -50,14 +52,17 @@ export class GestionComponent implements OnInit {
   update() {
     this.printedOption = this.selectedOption;
     console.log(this.selectedOption)
-    this.documentService.updateDocument(this.currentId, { "estado": this.selectedOption.toString(), "__v": 0 } ).subscribe()
+    this.documentService.updateDocument(this.currentId, { "estado": this.selectedOption.toString(), "__v": 0 } ).subscribe(()=>{
+      this.getAllDocument()
+      console.log("wtf")
+      this.message.success('El usuario se ha actualizado correctamente!')
+    })
   }
 
   getAllDocument(){
    this.documentService.getDocuments()
    .subscribe(
      res=>{
-       console.log( "get doc", res)
        this.documents = res
      },
      err=>{

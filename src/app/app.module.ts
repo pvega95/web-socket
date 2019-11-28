@@ -1,6 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
+// NgZoroo modules
+import { NzIconModule, NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd/icon';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+// End of NgZorro
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +25,11 @@ import { NavComponent } from './componentes/nav/nav.component';
 import { GestionComponent } from './componentes/gestion/gestion.component';
 import { ModalComponent } from './componentes/modal/modal.component';
 import { DocumentoService } from './servicios/documento.service';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
+
+const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
+
 
 @NgModule({
   declarations: [
@@ -26,22 +40,31 @@ import { DocumentoService } from './servicios/documento.service';
     OpcionComponent,
     NavComponent,
     GestionComponent,
-    ModalComponent
+    ModalComponent,
+    CrearUsuarioComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    NzMessageModule,
+    NzIconModule,
+    NzUploadModule,
+    NzModalModule,
   ],
   providers: [MovieServiceService,AuthService,DocumentoService,
-  {
-    provide : HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+    
+    { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' }, // If not provided, Ant Design's official blue would be used
+    { provide: NZ_ICONS, useValue: icons },
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

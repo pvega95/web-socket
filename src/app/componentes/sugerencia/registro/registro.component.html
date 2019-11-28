@@ -9,11 +9,20 @@
                 <p>Hector Lavoe</p>
                 <p>Area Transporte</p>
             </div>
-            <div >
-                <button class="btn-circle">A</button>
-                <button class="btn-circle-2">B</button>
+            <div class="dflex" style="justify-content: space-around;">
+              <button class="btn-circle">
+                  <i nz-icon nzType="message" nzTheme="outline"></i>
+              </button>
+              <button class="btn-circle-2">
+                  <i nz-icon nzType="logout" nzTheme="outline"></i>
+              </button>
             </div>
         </div>
+        <button
+            class="btn"
+            (click)="submit()"
+            style="margin: 20px 0; width: 100%;"
+        >ENVIAR</button>
 
     </div>
 
@@ -36,31 +45,30 @@
         <div class="vl"></div>
         <div class="step-model">
             <div class="step-number">
-                <p class="circle-number">1</p>
+                <p class="circle-number">2</p>
             </div>
-            <div class="step-body-2">
+            <div class="step-body">
                 <div class="container">
                     <p>Adjuntar Imagen</p>
                     <hr>
-                    
-                    <!-- <form action="#">
-                            <div class="file-field input-field">
-                              <div class="btn">
-                                <span>ADJUNTAR</span>
-                                <input type="file">
-                              </div>
-                              <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                              </div>
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                            <span>ADJUNTAR</span>
+                            <input type="file">
                             </div>
-                          </form> -->
+                            <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="vl"></div>
         <div class="step-model">
             <div class="step-number">
-                <p class="circle-number">1</p>
+                <p class="circle-number">3</p>
             </div>
             <div class="step-body">
                 <div class="container">
@@ -76,32 +84,25 @@
         <div class="vl"></div>
         <div class="step-model">
             <div class="step-number">
-                <p class="circle-number">1</p>
+                <p class="circle-number">4</p>
             </div>
             <div class="step-body-2">
                 <div class="container">
-                    <!-- <p>Adjuntar Imagen de la Solucion</p> -->
-                    <p>Fecha</p>
+                    <p>Adjuntar Imagen</p>
                     <hr>
-                    <input type="text" class="datepicker" formControlName="fecha_ingreso">
-                    <!-- <form action="#">
-                            <div class="file-field input-field">
-                              <div class="btn">
-                                <span>ADJUNTAR</span>
-                                <input type="file">
-                              </div>
-                              <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                              </div>
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                            <span>ADJUNTAR</span>
+                            <input type="file">
                             </div>
-                          </form> -->
+                            <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="col s2">
-        <div class="bodyChild">
-            <button class="btn" (click)="submit()">ENVIAR</button>
         </div>
     </div>
 </div>
