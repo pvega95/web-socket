@@ -29,7 +29,6 @@ export class ConsultaComponent implements OnInit {
         console.log(err)
       }
     )
-
   }
 
 }
