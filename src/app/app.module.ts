@@ -28,6 +28,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
 
 import { LOCALE_ID } from '@angular/core';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
@@ -42,7 +43,8 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     NavComponent,
     GestionComponent,
     ModalComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    ChatComponent
   ],
   imports: [
     BrowserAnimationsModule,

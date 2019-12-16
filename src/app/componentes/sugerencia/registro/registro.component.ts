@@ -39,7 +39,6 @@ export class RegistroComponent implements OnInit {
       img_actual: '',
       img_futura: '',
       autor: '',
-      // estado: null,
     });
   }
 
@@ -51,6 +50,7 @@ export class RegistroComponent implements OnInit {
   }
 
   submit() {
+
     this.crudForm.controls['autor'].setValue(this.autor)
     this.crudForm.get('fecha_ingreso').patchValue(new Date())
     const document = this.crudForm.value;

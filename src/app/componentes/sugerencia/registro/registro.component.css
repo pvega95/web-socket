@@ -1,9 +1,11 @@
 .card-user{
-    width: 100%;
-    height: 303px;
+    /* width: 100%;
+    height: 303px; */
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    margin: 0px 20px;
+    padding: 30px 0px;
 }
 .dflex{
     display: flex;
@@ -37,7 +39,7 @@
     position: absolute;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    left: 20%;
+    left: 28%;
     z-index: 2;
     background: #8A9BE7;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -122,3 +124,69 @@
     margin-top: 8px;
     color: #666;
 }
+.step-body p{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #484779;
+}
+.card-text .name{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #484779;
+}
+.card-text .area{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #000000;
+}
+
+.btn-desktop{
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.btn-mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .card-user{
+        margin-bottom: 10%;
+    }
+    .step-model .step-number{
+        left: 7%;
+    }
+    .btn{
+        width: unset;
+    }
+    .btn-desktop{
+        display: none;
+    }
+    .btn-mobile{
+        display: block;
+        text-align: center;
+    }
+    .btn-mobile button{
+        margin: 20px 0px;
+    }
+    .step-model .step-body{
+        min-height: 180px;
+    }
+  }

@@ -1,0 +1,17 @@
+<form [formGroup]="myForm">
+  <div id="chat-container">
+    <div id="chat-window">
+      <div id="output">
+        <p *ngFor="let chatModel of chatModels">
+          <strong>{{chatModel.username}}</strong> : {{chatModel.message}}
+        </p>
+      </div>
+      <div id="actions">
+        <p *ngIf="typing"><em>{{typing}} is typing !!</em></p>
+      </div>
+    </div>
+    <input type="text" formControlName="username" id="username" placeholder="username">
+    <input type="text" formControlName="message"  id="message" placeholder="message">
+    <button id="send" (click)="send()">ENVIAR</button>
+  </div>
+</form>

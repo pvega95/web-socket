@@ -1,13 +1,13 @@
 <app-nav></app-nav>
 <div class="row mt-2">
-    <div class="col s2">
+    <div class="col s12 xl3">
         <div class="card-user">
             <div class="dflex">
                 <img src="https://picsum.photos/100" alt="" class="circle responsive-img mx-auto">
             </div>
             <div class="card-text">
-                <p>Hector Lavoe</p>
-                <p>Area Transporte</p>
+                <p class="name">Hector Lavoe</p>
+                <p class="area">Area Transporte</p>
             </div>
             <div class="dflex" style="justify-content: space-around;">
                 <button class="btn-circle">
@@ -18,15 +18,18 @@
                 </button>
               </div>
         </div>
-        <button
+        <div class="btn-desktop">
+            <button
             class="btn"
             (click)="submit()"
-            style="margin: 20px 0; width: 100%;"
+            [disabled]="!crudForm.valid"
         >ENVIAR</button>
+        </div>
+        
 
     </div>
 
-    <div class="col s8" [formGroup]="crudForm">
+    <div class="col s12 xl7" [formGroup]="crudForm">
         <div class="step-model">
             <div class="step-number">
                 <p class="circle-number">1</p>
@@ -86,7 +89,7 @@
             <div class="step-number">
                 <p class="circle-number">4</p>
             </div>
-            <div class="step-body-2">
+            <div class="step-body">
                 <div class="container">
                     <p>Adjuntar Imagen</p>
                     <hr>
@@ -104,5 +107,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="btn-mobile">
+        <button
+        class="btn"
+        (click)="submit()"
+    >ENVIAR</button>
     </div>
 </div>

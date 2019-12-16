@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  URL : 'https://sugerencia-app.herokuapp.com/api',
+  // URL : 'https://sugerencia-app.herokuapp.com/api',
   // URL : 'http://localhost:3000/api',
+  URL : 'http://localhost:3000',
 
 };
 

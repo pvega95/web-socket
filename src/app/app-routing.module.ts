@@ -7,6 +7,7 @@ import { RegistroComponent } from './componentes/sugerencia/registro/registro.co
 import { AuthGuard } from './guard/auth.guard';
 import { GestionComponent } from './componentes/gestion/gestion.component';
 import { CrearUsuarioComponent } from './componentes/crear-usuario/crear-usuario.component';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'consulta', component: ConsultaComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'gestion-sugerencia', component: GestionComponent },
-  { path: 'usuario-nuevo', component: CrearUsuarioComponent }
+  { path: 'usuario-nuevo', component: CrearUsuarioComponent },
+  { path: 'chat',component: ChatComponent}
 ];
 
 @NgModule({

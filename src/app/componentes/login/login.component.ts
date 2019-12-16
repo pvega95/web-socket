@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthService } from 'src/app/servicios/auth.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private router: Router,
-    private authService : AuthService) { 
+    private authService : AuthService,
+    private message: NzMessageService) { 
       
     }
 
@@ -39,11 +41,16 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res =>{
         console.log(res)
+        this.message.success('Bienvenido')
         localStorage.setItem('token', res.token);
         localStorage.setItem('userInfo', JSON.stringify(res.userInfo));
         this.router.navigate(['/view1']);
       },
-      err => console.log(err)
+      err => {
+        this.message.error('Contraseña Incorrecta')
+        console.log(err)
+
+      }
     )
   }
 }
